@@ -31,12 +31,37 @@
   </aside>
   <h1><b>What is Sass? Your guide to this top CSS preprocessor</b></h1>
   <p><i>By Tammy Coron January 10, 2020</i></p>
+
+
+  <style> 
+#panel, #flip {
+  padding: 5px;
+  font-size: 18px;
+  text-align: center;
+  background-color: #555;
+  color: white;
+  border: solid 1px #666;
+  border-radius: 3px;
+}
+
+#panel {
+  padding: 50px;
+  display: none;
+}
+</style>
+ 
+<button id="stop">Stop sliding</button>
+
+<div id="flip">Click to slide down panel</div>
+<div id="panel">$SASS = $time - $a-lot </div>
   
   <h3>Discover what Sass is, and learn how to start using it.</h3>
   
   <p><b><i>What is Sass? That's the question we here to answer. If you're new to web design, you've probably heard the term floating around, but you might not be quite up to speed with exactly what Sass is, what is does, and whether or not you should be using it. In short, Sass is a CSS preprocessor, which adds special features such as variables, nested rules and mixins (sometimes referred to as syntactic sugar) into regular CSS. The aim is to make the coding process simpler and more efficient. Let's explore in more detail.</i></b></p>
 
   <p><b><i>Article source: https://www.creativebloq.com/web-design/what-is-sass-111517618</b></i></p>
+  
+
 
   <h2><b>What is a CSS preprocessor?</b></h2>
   
@@ -220,8 +245,43 @@ body {
 
   <h2><b>Tammy Coron</b></h2>
   
-  <p><b>Tammy is an independent creative professional and the host of Roundabout: Creative Chaos. She’s also the owner of Just Write Code, an independent production company located in West Tennessee. For more information about Tammy, visit her website by clicking the icons above.</b></p>
-  <br>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#hide").click(function(){
+    $("p").hide();
+  });
+  $("#show").click(function(){
+    $("p").show();
+  });
+});
+$(document).ready(function(){
+  $("#flip").click(function(){
+    $("#panel").slideDown(5000);
+  });
+  $("#stop").click(function(){
+    $("#panel").stop();
+  });
+});
+$(document).ready(function(){
+  $("#timestamp").click(function(event){
+    $("#milliseconds").text(event.timeStamp);
+  });
+});
+</script>
+
+ <p><b>Tammy is an independent creative professional and the host of Roundabout: Creative Chaos. She’s also the owner of Just Write Code, an independent production company located in West Tennessee. For more information about Tammy, visit her website by clicking the icons above.</b></p>
+  
+<button id="hide">Hide info about Tammy Coron</button>
+<button id="show">Show info</button>
+<br>
+<br>
+
+<p>The click event occurred <span id="milliseconds" style="color:red">unknown</span> milliseconds after January 1, 1970. Note that each time you click it shows you refreshed event time.</p>
+
+<button id="timestamp">Click me</button>  
+<br>
+<br> 
   <form action="https://github.com/zumrat/HTMLWorkshop" method="get" id="nameform">
   <label for="email">Email:</label>
   <input type="text" id="email" name="email"><br><br>
